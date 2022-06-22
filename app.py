@@ -39,7 +39,7 @@ def main():
   st.title("WEL-COME TO IMAGE CLASSIFICATION")
 
   def load_data():
-    DATADIR = '/content/drive/MyDrive/ML Internship SmartKnower/ML/Minor Project/images'
+    DATADIR = 'https://drive.google.com/drive/folders/1D5iV7JPVJHL5zvBq2z88i0cBU5gtlqSo?usp=sharing'
     CATEGORIES =['Rainy','bicycle']
     return CATEGORIES
     
@@ -49,7 +49,7 @@ def main():
     images = []
     flatten_data =[]
 
-    DATADIR = '/content/drive/MyDrive/ML Internship SmartKnower/ML/Minor Project/images'
+    DATADIR = 'https://drive.google.com/drive/folders/1D5iV7JPVJHL5zvBq2z88i0cBU5gtlqSo?usp=sharing'
     CATEGORIES =['Rainy','bicycle']
 
     for category in  CATEGORIES:
@@ -180,19 +180,19 @@ def main():
         st.write(f'Probablity : {y_prob_pred}')
         
       
-  def prediction_url(data):
-    model =  pickle.load(open('img_model.p','rb'))
-    flatten_data = []
-    url =  st.text_input("Enter your URL")
-    img =  imread(url)
-    img_resize = resize(img,(150,150,3))
-    flatten_data.append(img_resize.flatten())
-    flatten_data = np.array(flatten_data)
-    print(img.shape)
-    plt.imshow(img_resize)
-    y_out = model.predict([flatten_data])
-    y_out = CATEGORIES[y_out[0]]
-    print(f'predicted output:{y_out}')
+#   def prediction_url(data):
+#     model =  pickle.load(open('img_model.p','rb'))
+#     flatten_data = []
+#     url =  st.text_input("Enter your URL")
+#     img =  imread(url)
+#     img_resize = resize(img,(150,150,3))
+#     flatten_data.append(img_resize.flatten())
+#     flatten_data = np.array(flatten_data)
+#     print(img.shape)
+#     plt.imshow(img_resize)
+#     y_out = model.predict([flatten_data])
+#     y_out = CATEGORIES[y_out[0]]
+#     print(f'predicted output:{y_out}')
 
 
   data = load_data()
